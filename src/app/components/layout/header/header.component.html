@@ -1,0 +1,29 @@
+<header class="d-flex flex-wrap justify-content-between align-items-center p-2 bg-white header">
+  <!-- Left Section -->
+  <div class="header-left text-center text-md-start mb-2 mb-md-0">
+    <span class="navbar-brand ms-2">
+      <span class="fw-bold d-block">Welcome, {{ userName }}</span>
+      <span class="moral text-muted">
+        Here are today's Accessibility stats for your website
+      </span>
+    </span>
+  </div>
+
+  <!-- Right Section -->
+  <div class="header-right d-flex align-items-center justify-content-center justify-content-md-end flex-wrap gap-3">
+    <!-- Notification Icon -->
+    <div class="notification-icon me-md-3 position-relative">
+      <i class="bi bi-bell fs-5"></i>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        style="font-size: 0.6rem;">
+        {{notifications}}
+      </span>
+    </div>
+    <div class="profile d-flex align-items-center text-center text-md-start">
+      <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle me-2"
+        style="width: 40px; height: 40px;" />
+      <span class="profile-name d-none d-sm-inline">{{ userName }}</span>
+      <i class="bi bi-chevron-down ms-1"></i>
+    </div>
+  </div>
+</header>

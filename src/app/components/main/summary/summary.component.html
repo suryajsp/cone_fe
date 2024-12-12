@@ -1,0 +1,50 @@
+<div class="content container-fluid">
+    <div class="dropdown_container pt-2">
+        <select class="form-select w-auto" id="selectBox" [(ngModel)]="selectedPreference">
+            <option *ngFor="let preference of preferenceList" [value]="preference.key">
+                {{ preference.value }}
+            </option>
+        </select>
+    </div>
+    <div class="row g-1 mt-1">
+        <div class="col-12 col-md-4 col-sm-6 d-flex justify-content-center" *ngFor="let card of cardData">
+            <div class="card shadow-sm pt-3 pb-0">
+                <div class="card-body row">
+                    <div class="col-2">
+                        <span class="icon-placeholder"><i class="{{card.icon}}"></i></span>
+                    </div>
+                    <div class="col-10">
+                        <h5 class="card-title">{{ card.title }}</h5>
+                        <div class="row">
+                            <div class="col">
+                                <p *ngIf="isString(card.count)" class="card-text">{{ card.count }}</p>
+                                <ul *ngIf="isObject(card.count)" class="list-unstyled card-text">
+                                    <li *ngFor="let key of objectKeys(card.count)">
+                                        {{ card.count[key] }}
+                                    </li>
+                                </ul>
+                                <p class="card-text">{{ card.checked_desc }}</p>
+                            </div>
+                            <div class="col text-center">
+                                <strong class="card-score">{{ card.score }}</strong>
+                            </div>
+                        </div>
+                        <p class="card-bottom text-end">
+                            {{ card.change }} this week
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row g-1 mt-1">
+        <div class="col-12 col-md-4 col-sm-6 d-flex justify-content-center">
+            <div class="card">
+                <h5 class="card-title">Website Accessibility Performance Visualization</h5>
+            </div>
+            <div class="card">
+                <h5 class="card-title">Top Error Pages</h5>
+            </div>
+        </div>
+    </div>-->
+</div>

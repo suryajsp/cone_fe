@@ -1,0 +1,13 @@
+<div class="sidebar vh-100 p-3 text-white" [ngClass]="{ collapsed: isCollapsed }">
+  <i (click)="toggleSidebar()" class="toggle-icon fs-4" [ngClass]="{
+      'bi bi-arrow-right-circle': isCollapsed,
+      'bi bi-arrow-left-circle': !isCollapsed
+    }"></i>
+  <ul class="list-unstyled mt-4" [ngClass]="{ 'd-none': isCollapsed, 'd-block': !isCollapsed }">
+    <li>
+      <a href="#" class="nav-link text-white">
+        <i class="bi-columns-gap me-3"></i> Overview
+      </a>
+    </li>
+  </ul>
+</div>

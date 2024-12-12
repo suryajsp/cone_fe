@@ -1,0 +1,62 @@
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .header-left {
+        font-size: 0.9rem;
+
+        .moral {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+    }
+
+    .notification-icon {
+        .badge {
+            font-size: 0.6rem;
+        }
+    }
+
+    .profile {
+        .profile-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+
+        .header-left {
+            text-align: center;
+
+            .moral {
+                display: block;
+            }
+        }
+
+        .header-right {
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+
+        .header-right {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .profile img {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
