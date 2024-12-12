@@ -1,0 +1,32 @@
+<div class="p-3">
+    <h5 class="gauge-title">Top Error Pages</h5>
+    <kendo-radialgauge [scale]="{
+    min: 0,
+    max: 100,
+    startAngle: -90,
+    endAngle: 270,
+    ranges: [
+      { from: 0, to: 10, color: '#1A438F' },
+      { from: 11, to: 40, color: '#0A2472' }, 
+      { from: 41, to: 99, color: '#000720' }, 
+    ],
+    majorTicks: { visible: false },
+    minorTicks: { visible: false },
+    labels: { visible: false }
+  }">
+    </kendo-radialgauge>
+    <div class="legend-container">
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: #FF6347;"></span>
+            <span class="legend-label">Error1</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: #FFD700;"></span>
+            <span class="legend-label">Error1</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: #32CD32;"></span>
+            <span class="legend-label">Error1</span>
+        </div>
+    </div>
+</div>

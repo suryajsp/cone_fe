@@ -8,7 +8,7 @@
     </div>
     <div class="row g-1 mt-1">
         <div class="col-12 col-md-4 col-sm-6 d-flex justify-content-center" *ngFor="let card of cardData">
-            <div class="card shadow-sm pt-3 pb-0">
+            <div class="custom_card shadow-sm">
                 <div class="card-body row">
                     <div class="col-2">
                         <span class="icon-placeholder"><i class="{{card.icon}}"></i></span>
@@ -36,15 +36,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--<div class="row g-1 mt-1">
-        <div class="col-12 col-md-4 col-sm-6 d-flex justify-content-center">
-            <div class="card">
-                <h5 class="card-title">Website Accessibility Performance Visualization</h5>
+        <div class="row g-2 mt-2">
+            <div class="col-8">
+                <app-line-chart></app-line-chart>
             </div>
-            <div class="card">
-                <h5 class="card-title">Top Error Pages</h5>
+            <div class="col-4 card">
+                <app-radial-ring></app-radial-ring>
             </div>
         </div>
-    </div>-->
+    </div>
 </div>

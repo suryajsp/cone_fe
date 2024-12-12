@@ -1,5 +1,4 @@
 .content {
-    background-color: rgba(170, 170, 170, 0.2);
     height: 85vh;
 
     .dropdown_container {
@@ -10,10 +9,11 @@
         }
     }
 
-    .card {
+    .custom_card {
         border-radius: 40px;
         background-color: #fff;
         border: none;
+        padding: 20px 20px 0px 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
 
@@ -53,6 +53,18 @@
     }
 }
 
+.card {
+    border-radius: 40px;
+    border: none;
+}
+
+app-line-chart {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Ensures the chart resizes correctly */
+}
+
 @media (max-width: 768px) {
     .dropdown_container {
         text-align: center;
@@ -62,7 +74,7 @@
         }
     }
 
-    .card {
+    .custom_card {
         .card-body {
             .icon-placeholder {
                 font-size: 1.2rem; // Adjust icon size for small screens
