@@ -4,6 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './components/layout/layout.module';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ApiService } from './service/core/api.service';
+import { TokenService } from './service/core/token.service';
+import { HomeService } from './service/home.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +17,14 @@ import { LayoutModule } from './components/layout/layout.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    TokenService,
+    HomeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

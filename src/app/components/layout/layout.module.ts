@@ -6,6 +6,7 @@ import { ContentComponent } from './content/content.component';
 import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { MainModule } from '../main/main.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { MainModule } from '../main/main.module';
     LayoutComponent,
     SideNavComponent,
     HeaderComponent,
-    ContentComponent
+    ContentComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
