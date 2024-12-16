@@ -1,13 +1,11 @@
-<div>
-  <app-home></app-home>
-</div>
-
-<!--<div class="d-flex flex-column">
+<div class="d-flex flex-column">
   <div class="d-flex flex-grow-1">
     <app-side-nav></app-side-nav>
     <div class="content-area flex-grow-1">
       <app-header></app-header>
-      <app-content></app-content>
+      <div class="overflow-auto feature">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
-</div>-->
+</div>

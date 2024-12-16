@@ -9,10 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/core/api.service';
 import { TokenService } from './service/core/token.service';
 import { HomeService } from './service/home.service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
