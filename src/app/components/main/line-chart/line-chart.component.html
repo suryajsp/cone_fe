@@ -1,21 +1,13 @@
-<kendo-chart [chartArea]="{ background: 'transparent' }">
+<!--<kendo-chart [chartArea]="{ background: 'transparent' }">
     <kendo-chart-title [align]="'left'" [font]="'bold 15px Arial'"
         text="Website Accessibility Performance Visualization"></kendo-chart-title>
     <kendo-chart-legend position="top"></kendo-chart-legend>
-
-    <!--<kendo-chart-category-axis>
-        <kendo-chart-category-axis-item [categories]="categories" [title]="{ text: 'Months' }">
-        </kendo-chart-category-axis-item>
-    </kendo-chart-category-axis>-->
-
-    <!--<kendo-chart-value-axis>
-        <kendo-chart-value-axis-item [title]="{ text: 'Website ($)' }">
-        </kendo-chart-value-axis-item>
-    </kendo-chart-value-axis>-->
 
     <kendo-chart-series>
         <kendo-chart-series-item type="line" [data]="data" name="Website1"></kendo-chart-series-item>
         <kendo-chart-series-item type="line" [data]="data1" name="Website2"></kendo-chart-series-item>
         <kendo-chart-series-item type="line" [data]="data2" name="Website3"></kendo-chart-series-item>
     </kendo-chart-series>
-</kendo-chart>
+</kendo-chart>-->
+
+<div echarts [options]="chartOptions" [autoResize]="true" class="chart-container"></div>

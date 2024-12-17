@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { color } from 'echarts';
 
 @Component({
   selector: 'app-radial-ring',
@@ -6,12 +7,55 @@ import { Component } from '@angular/core';
   styleUrls: ['./radial-ring.component.scss']
 })
 export class RadialRingComponent {
-  public value = 65; // Current value
-  public min = 0;    // Minimum value of the scale
-  public max = 100;  // Maximum value of the scale
-  public colors = [
-    { from: 0, to: 50, color: '#FF6347' },  // Red for values 0–50
-    { from: 50, to: 75, color: '#FFD700' }, // Yellow for values 50–75
-    { from: 75, to: 100, color: '#32CD32' } // Green for values 75–100
-  ];
+  options: any;
+
+  constructor() {
+    this.options = {
+      title: {
+        text: 'Top Error Pages',
+        left: 'left',
+        textStyle: {
+          fontSize: 15,
+          fontWeight: 'bold',
+          color: '#000'
+        }
+      },
+      color: ['#1E3F66', '#2E5984', '#528AAE', '#73A5C6', '#91BAD6'],
+      tooltip: {
+        trigger: 'item',
+      },
+      legend: {
+        top: 'bottom',
+      },
+      series: [
+        {
+          name: 'Access Source',
+          type: 'pie',
+          radius: ['60%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false,
+            position: 'center',
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '16',
+              fontWeight: 'bold',
+            },
+          },
+          labelLine: {
+            show: false,
+          },
+          data: [
+            { value: 1048, name: 'Error 1' },
+            { value: 735, name: 'Error 2' },
+            { value: 580, name: 'Error 3' },
+          ]
+        },
+
+      ],
+      responsive: true,
+    };
+  }
 }

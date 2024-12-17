@@ -1,5 +1,5 @@
 .content {
-    height: 85vh;
+    background-color: rgba(128, 128, 128, 0.19);
 
     .dropdown_container {
         text-align: left;
@@ -18,7 +18,7 @@
         transition: transform 0.3s;
 
         &:hover {
-            background-color: #131E3A;
+            background-color: #1E3F66;
             color: #fff;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
@@ -58,12 +58,6 @@
     border: none;
 }
 
-app-line-chart {
-    display: block;
-    width: 100%;
-    height: auto;
-    /* Ensures the chart resizes correctly */
-}
 
 @media (max-width: 768px) {
     .dropdown_container {

@@ -9,6 +9,7 @@ import { RadialGaugeModule } from '@progress/kendo-angular-gauges';
 import { SummaryComponent } from './summary/summary.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { RadialRingComponent } from './radial-ring/radial-ring.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 //import 'hammerjs'; // Required for gestures
@@ -25,7 +26,10 @@ import { RadialRingComponent } from './radial-ring/radial-ring.component';
     MainRoutingModule,
     FormsModule,
     ChartsModule,
-    RadialGaugeModule
+    RadialGaugeModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
