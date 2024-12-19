@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://testinvictaapi.continualengine.com/continually",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
