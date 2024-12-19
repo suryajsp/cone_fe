@@ -10,6 +10,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { RadialRingComponent } from './radial-ring/radial-ring.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { SharedModule } from '../shared/shared.module';
 
 
 //import 'hammerjs'; // Required for gestures
@@ -29,7 +30,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     RadialGaugeModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

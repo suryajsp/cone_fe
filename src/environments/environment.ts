@@ -1,3 +1,4 @@
 export const environment = {
-    url: process.env['BASE_URL']
+    production: false,
+    apiUrl: 'https://testinvictaapi.continualengine.com/continually',
 };

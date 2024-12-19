@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SummaryService } from '../../../service/summary.service';
+import { TokenService } from '../../../service/core/token.service';
 
 @Component({
   selector: 'app-summary',
@@ -44,6 +46,24 @@ export class SummaryComponent {
       checked_desc: "Checked"
     }
   ];
+
+  tableData = [
+    { column1: 'Data 1.1', column2: 'Data 1.2', column3: 'Data 1.3' },
+    { column1: 'Data 2.1', column2: 'Data 2.2', column3: 'Data 2.3' },
+    { column1: 'Data 3.1', column2: 'Data 3.2', column3: 'Data 3.3' },
+  ];
+
+  constructor(
+    private summaryService: SummaryService,
+    private tokenService: TokenService,
+  ) { }
+
+  ngOnInit(): void {
+    this.summaryService.getSubCategory().subscribe(res => {
+      const data = res;
+      console.log(data);
+    })
+  }
 
   isString(value: any): boolean {
     return typeof value === 'string';
