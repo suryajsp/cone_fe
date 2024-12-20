@@ -21,12 +21,12 @@ export class ApiService {
   private getHeaders(): HttpHeaders {
     const token = this.tokenService.getToken();
     const headersConfig: { [key: string]: string } = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Accept': 'application/json, text/plain, */*',
     };
 
     if (token) {
-      headersConfig['Authorization'] = `Bearer ${token}`;
+      headersConfig['Authorization'] = `Token ${token}`;
     }
 
     return new HttpHeaders(headersConfig);

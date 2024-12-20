@@ -13,7 +13,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private tokenService: TokenService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private tokenService: TokenService, public router: Router) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -25,6 +25,7 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response: any) => {
           this.tokenService.setToken(response.token);
+          this.router.navigate(['/admin']);
         },
         error: (err) => {
           this.errorMessage = 'Invalid credentials';

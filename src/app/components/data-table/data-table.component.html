@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <h5>{{this.tableTitle}}</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>URL</th>
+                    <th>Status</th>
+                    <th>Rule ID</th>
+                    <th>Guideline</th>
+                    <th>WCAGPrinciple</th>
+                    <th>Severity</th>
+                    <th>HTML</th>
+                    <th>BugSummary</th>
+                    <th>User Impact</th>
+                    <th>Expected Result</th>
+                    <th>Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableData">
+                    <td>{{ item.website_url }}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.subcategory_id}}</td>
+                    <td>{{item.guideline}}</td>
+                    <td>{{item.wcag_principle}}</td>
+                    <td>{{item.severity}}</td>
+                    <td>{{item.html}}</td>
+                    <td>{{item.bug_summary}}</td>
+                    <td>{{item.user_impact}}</td>
+                    <td>{{item.expected_result}}</td>
+                    <td>{{item.recommendation}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

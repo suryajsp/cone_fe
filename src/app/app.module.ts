@@ -15,13 +15,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { DataTableComponent } from './components/data-table/data-table.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     LayoutModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   providers: [
     ApiService,
