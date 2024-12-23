@@ -1,1 +1,11 @@
-<p>table works!</p>
+<div>
+    <kendo-grid #myGrid [class]="scrollClass" [kendoGridBinding]="gridData1" [pageSize]="10" [sortable]="true"
+        [pageable]="true" [filterable]="true">
+        <!-- "boolean" | "text" | "numeric" | "date"' -->
+        <ng-container *ngFor="let col of FinColumns">
+            <kendo-grid-column *ngIf="col.checkBox" [field]="col.name" [title]="col.viewValue" [width]="col.width"
+                [filterable]="col.filterable" [filter]="col.filter" [format]="col.format" [locked]="col.locked">
+            </kendo-grid-column>
+        </ng-container>
+    </kendo-grid>
+</div>

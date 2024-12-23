@@ -1,15 +1,6 @@
-<div class="container mt-2">
-    <kendo-grid [data]="tableData" [filterable]="true" [filter]="filter" (filterChange)="filterChange($event)">
-        <kendo-grid-column field="website_url" title="URL"></kendo-grid-column>
-        <kendo-grid-column field="status" title="Status"></kendo-grid-column>
-        <kendo-grid-column field="subcategory_id" title="Rule ID"></kendo-grid-column>
-        <kendo-grid-column field="guideline" title="Guideline"></kendo-grid-column>
-        <kendo-grid-column field="wcag_principle" title="WCAGPrinciple"></kendo-grid-column>
-        <kendo-grid-column field="severity" title="Severity"></kendo-grid-column>
-        <kendo-grid-column field="html" title="HTML"></kendo-grid-column>
-        <kendo-grid-column field="bug_summary" title="Bug Summary"></kendo-grid-column>
-        <kendo-grid-column field="user_impact" title="User Impact"></kendo-grid-column>
-        <kendo-grid-column field="expected_result" title="Expected Result"></kendo-grid-column>
-        <kendo-grid-column field="recommendation" title="Recommendation"></kendo-grid-column>
-    </kendo-grid>
+<div class="table mt-4">
+    <div class="card p-3">
+        <h5>{{tableTitle}}</h5>
+        <app-table *ngIf="tableData.length > 0" [columnProperty]="columnProperties" [data]="tableData"></app-table>
+    </div>
 </div>

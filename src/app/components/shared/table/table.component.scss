@@ -1,0 +1,47 @@
+:host ::ng-deep .k-grid-header .k-header {
+    position: relative;
+    vertical-align: bottom;
+    cursor: default;
+    text-align: center;
+}
+
+:host ::ng-deep .k-cell-inner>.k-link {
+    padding: 8px 12px;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: 1;
+    display: block;
+    overflow: visible;
+    background-color: #1E3F66;
+    color: #fff;
+    text-align: center;
+    width: auto;
+}
+
+
+:host ::ng-deep .fixed-header .k-grid-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+}
+
+.sticky-header {
+    position: -webkit-sticky;
+    /* For Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+:host ::ng-deep .k-grid-content {
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    /* Firefox */
+}
+
+:host ::ng-deep .k-grid-content::-webkit-scrollbar {
+    width: 8px;
+}

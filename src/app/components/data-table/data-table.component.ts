@@ -1,87 +1,151 @@
-import { Component, ViewChild } from '@angular/core';
-import { forkJoin, map } from 'rxjs';
-import { HomeService } from '../../service/home.service';
-import { CompositeFilterDescriptor, filterBy } from "@progress/kendo-data-query";
+import { Component } from '@angular/core';
+import { ReportService } from '../../service/report.service';
 
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrl: './data-table.component.scss'
+  styleUrl: './data-table.component.scss',
 })
 export class DataTableComponent {
+
+  columnProperties: any = [
+    {
+      id: 0,
+      name: 'website_url',
+      viewValue: 'URL',
+      checkBox: true,
+      width: 220,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: true,
+    },
+    {
+      id: 1,
+      name: 'status',
+      viewValue: 'Status',
+      checkBox: true,
+      width: 100,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 2,
+      name: 'subcategory_id',
+      viewValue: 'Rule ID',
+      checkBox: true,
+      width: 120,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 3,
+      name: 'guideline',
+      viewValue: 'Guideline',
+      checkBox: true,
+      width: 120,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 4,
+      name: 'wcag_principle',
+      viewValue: 'WCAGPrinciple',
+      checkBox: true,
+      width: 150,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 5,
+      name: 'severity',
+      viewValue: 'Severity',
+      checkBox: true,
+      width: 100,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 6,
+      name: 'html',
+      viewValue: 'HTML',
+      checkBox: true,
+      width: 160,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 7,
+      name: 'bug_summary',
+      viewValue: 'Bug Summary',
+      checkBox: true,
+      width: 160,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 8,
+      name: 'user_impact',
+      viewValue: 'User Impact',
+      checkBox: true,
+      width: 220,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 9,
+      name: 'expected_result',
+      viewValue: 'Expected Result',
+      checkBox: true,
+      width: 120,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+    {
+      id: 10,
+      name: 'recommendation',
+      viewValue: 'Recommendation',
+      checkBox: true,
+      width: 220,
+      filterable: true,
+      filter: 'text',
+      format: '',
+      locked: false,
+    },
+  ]
+
   tableData: any[] = [];
   tableTitle: string = '';
-  filter: CompositeFilterDescriptor = {
-    logic: "and",
-    filters: [],
-  };
 
   constructor(
-    private homeService: HomeService
-  ) { }
-
-  ngOnInit(): void {
-    this.getData()
+    private reportService: ReportService
+  ) {
+    this.reportService.getData().subscribe(
+      (data) => {
+        this.tableData = data[0]?.categories;
+        this.tableTitle = data[0]?.title;
+      },
+      (err) => {
+        console.error('Error Fetching Report Data:', err);
+      }
+    );
   }
-
-  filterChange(filter: CompositeFilterDescriptor): void {
-    this.filter = filter;
-    this.getData();
-  }
-
-  getData() {
-    forkJoin({
-      api1: this.homeService.getCategorySubcategoryMapping(),
-      api2: this.homeService.getSubcategories(),
-      api3: this.homeService.getSubcategoryTestResults(),
-      api4: this.homeService.getWebpageMapping(),
-      api5: this.homeService.getAccessibility(),
-    })
-      .pipe(
-        map(({ api1, api2, api3, api4, api5 }) => {
-          // Merge data
-          return api1.map((item1: any) => {
-            const categories = item1.subcategories.map((catId: number) => {
-              const api2Item = api2.find((item: any) => item.id === catId);
-              const api3Item = api3.find(
-                (item: any) => item.id === api2Item.id
-              );
-              const api4Item = api4.find(
-                (item: any) => item.id === api3Item.id
-              );
-              const api5Item = api5.find(
-                (item: any) => item.test_id === api4Item.test
-              );
-
-              return {
-                id: api2Item.id,
-                severity: api2Item.severity,
-                subcategory_id: api2Item.subcategory_id,
-                wcag_principle: api2Item.wcag_principle,
-                guideline: api2Item.guideline,
-                user_impact: api2Item.user_impact,
-                recommendation: api2Item.recommendation,
-                bug_summary: api3Item.bug_summary,
-                html: api3Item.html,
-                status: api3Item.status,
-                expected_result: api3Item.expected_result,
-                website_url: api4Item.website_url,
-              };
-            });
-
-            return {
-              id: item1.id,
-              title: item1.category_name,
-              categories,
-            };
-          });
-        })
-      )
-      .subscribe((data) => {
-        this.tableTitle = data[0].title;
-        this.tableData = data[0].categories;
-        //this.tableData = filterBy(data[0].categories, this.filter);
-      });
-  }
-
 }

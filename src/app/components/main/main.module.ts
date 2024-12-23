@@ -30,8 +30,7 @@ import { SharedModule } from '../shared/shared.module';
     RadialGaugeModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    }),
-    SharedModule
+    })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
