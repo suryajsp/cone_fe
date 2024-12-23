@@ -1,6 +1,6 @@
 <div class="table mt-4">
     <div class="card p-3">
-        <h5>{{tableTitle}}</h5>
-        <app-table *ngIf="tableData.length > 0" [columnProperty]="columnProperties" [data]="tableData"></app-table>
+        <app-table *ngIf="tableData.length > 0" [columnProperty]="columnProperties" [data]="tableData"
+            [gridTitle]="tableTitle"></app-table>
     </div>
 </div>

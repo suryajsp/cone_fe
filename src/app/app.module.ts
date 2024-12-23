@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
 import { ReportService } from './service/report.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,

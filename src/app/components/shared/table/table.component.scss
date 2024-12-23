@@ -1,47 +1,64 @@
-:host ::ng-deep .k-grid-header .k-header {
-    position: relative;
-    vertical-align: bottom;
-    cursor: default;
-    text-align: center;
+/* Adjust menu placement to be over the grid */
+.menuTrigger {
+    cursor: pointer;
+    z-index: 1050;
+    /* Ensure it's above other elements */
 }
 
-:host ::ng-deep .k-cell-inner>.k-link {
-    padding: 8px 12px;
-    flex-flow: row nowrap;
+/* Menu style adjustments */
+.menu-over-grid .mat-menu-panel {
+    position: absolute !important;
+    z-index: 1050;
+    /* Bootstrap z-index for dropdowns */
+    top: auto !important;
+    /* Override to handle responsive behavior */
+    right: 0;
+    /* Align menu to the right */
+    margin-top: -8px;
+    /* Adjust spacing */
+}
+
+/* Menu item hover effects */
+.mat-menu-item {
+    display: flex;
     align-items: center;
-    flex: 1;
-    display: block;
-    overflow: visible;
-    background-color: #1E3F66;
-    color: #fff;
-    text-align: center;
-    width: auto;
+    gap: 8px;
 }
 
-
-:host ::ng-deep .fixed-header .k-grid-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: white;
+/* For checked and unchecked states */
+.mat-menu-item .mat-icon.checked {
+    color: green;
 }
 
-.sticky-header {
-    position: -webkit-sticky;
-    /* For Safari */
+.mat-menu-item .mat-icon.empty {
+    color: gray;
+}
+
+/* Responsive grid adjustments */
+:host ::ng-deep .k-grid {
+    overflow-x: auto;
+}
+
+/* Fixed header for responsive grid */
+:host ::ng-deep .k-grid-header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    background-color: #fff;
+    z-index: 1000;
 }
 
-:host ::ng-deep .k-grid-content {
-    overflow-y: auto;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    /* Firefox */
+/* Bootstrap helpers for responsive grid spacing */
+.mt-3 {
+    margin-top: 1rem !important;
 }
 
+/* Scrollbar customization for better UX */
 :host ::ng-deep .k-grid-content::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px;
+}
+
+:host ::ng-deep .k-grid-content::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
 }
