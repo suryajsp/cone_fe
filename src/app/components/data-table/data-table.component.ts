@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
-import { debounceTime, forkJoin, fromEvent, map } from 'rxjs';
+import { forkJoin, map } from 'rxjs';
 import { HomeService } from '../../service/home.service';
+import { CompositeFilterDescriptor, filterBy } from "@progress/kendo-data-query";
 
 @Component({
   selector: 'app-data-table',
@@ -11,6 +11,10 @@ import { HomeService } from '../../service/home.service';
 export class DataTableComponent {
   tableData: any[] = [];
   tableTitle: string = '';
+  filter: CompositeFilterDescriptor = {
+    logic: "and",
+    filters: [],
+  };
 
   constructor(
     private homeService: HomeService
@@ -18,6 +22,11 @@ export class DataTableComponent {
 
   ngOnInit(): void {
     this.getData()
+  }
+
+  filterChange(filter: CompositeFilterDescriptor): void {
+    this.filter = filter;
+    this.getData();
   }
 
   getData() {
@@ -71,7 +80,7 @@ export class DataTableComponent {
       .subscribe((data) => {
         this.tableTitle = data[0].title;
         this.tableData = data[0].categories;
-        console.log(data);
+        //this.tableData = filterBy(data[0].categories, this.filter);
       });
   }
 

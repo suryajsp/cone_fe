@@ -17,6 +17,14 @@ import { AuthService } from './service/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +41,15 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    GridModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ApiService,
