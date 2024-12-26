@@ -1,79 +1,109 @@
-  .sidebar {
-    width: 200px;
-    background-color: #1E3F66;
-    transition: all 0.3s ease;
+.sidebar {
+  width: 200px;
+  background-color: #1E3F66 !important;
+  transition: width 0.3s ease, justify-content 0.3s ease, align-items 0.3s ease;
+  color: #fff;
 
-    &.collapsed {
-      width: 60px;
-      overflow: hidden;
+  &.collapsed {
+    width: 80px;
+
+    .nav-link {
+      justify-content: center; // Center align icons when collapsed
+      padding: 0.75rem 0; // Adjust padding for consistent alignment
     }
 
-    .toggle-icon {
-      cursor: pointer;
-      color: #ffffff;
-      margin-bottom: 1rem;
+    .nav-link i {
+      margin-right: 0; // Remove spacing between icons and text
     }
 
-    ul {
-      li {
-        margin-bottom: 1rem;
+    .mt-auto {
+      justify-content: center; // Center align the logout icon
+      padding: 0.75rem 0; // Adjust padding for logout icon
+    }
+  }
 
-        a {
-          display: flex;
-          align-items: center;
-          font-size: 1rem;
-          color: #ffffff;
-          text-decoration: none;
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s, border-left 0.3s;
 
-          &:hover {
-            color: #adb5bd;
-          }
+    &:hover {
+      background-color: #528AAE !important;
+    }
+
+    i {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      transition: margin 0.3s ease;
+    }
+
+    span {
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  // Style for active parent menu item
+  .active-parent {
+    border-left: 4px solid #ffffff; // Left border for active parent
+  }
+
+  // Child menu styles
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll; // Allow scrolling but hide scrollbar
+    max-height: calc(100vh - 150px); // Limit the height to prevent overflow of the sidebar
+
+    // Hide scrollbar in Webkit browsers
+    &::-webkit-scrollbar {
+      display: none; // Hide scrollbar
+    }
+
+    // Firefox scrollbar styling
+    scrollbar-width: none; // Hide scrollbar in Firefox
+
+    li {
+      .nav-link {
+        padding-left: 2rem; // Indent for child menu items
+        font-size: 0.9rem;
+
+        &:hover {
+          background-color: #528AAE; // Hover effect for child items
         }
 
-        i {
-          font-size: 1.2rem;
+        &.active-child {
+          background-color: #528AAE; // Background for active child
+          font-weight: bold;
         }
       }
     }
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 992px) {
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      z-index: 1050;
-      background-color: #343a40;
+  // Toggle icon styles
+  .toggle-icon {
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
 
-      &.collapsed {
-        width: 0;
-      }
+    &.bi-arrow-right-circle {
+      transform: rotate(0deg);
+    }
 
-      ul {
-        li {
-          a {
-            font-size: 0.9rem;
-          }
-        }
-      }
+    &.bi-arrow-left-circle {
+      transform: rotate(180deg);
     }
   }
 
-  @media (max-width: 576px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
+  .mt-auto {
+    margin-top: auto;
+    padding: 0.75rem 1rem;
 
-      &.collapsed {
-        display: none;
-      }
-
-      ul {
-        li {
-          margin-bottom: 0.5rem;
-        }
-      }
+    &:hover {
+      background-color: #528AAE; // Hover effect for logout
     }
   }
+}
