@@ -12,3 +12,43 @@ a {
   background-color: #1E3F66 !important;
   color: #fff !important;
 }
+
+// Base variables for colors
+$focus-color: #1E3F66 ; // Blue for focus
+$valid-color: #28a745; // Green for valid
+$invalid-color: #dc3545; // Red for invalid
+
+// Customize Angular Material form-field appearance
+.mat-form-field {
+  &-appearance-fill {
+    .mat-form-field-ripple {
+      background-color: $focus-color; // Change ripple color on focus
+    }
+  }
+
+  // Outline for invalid input
+  &.ng-invalid {
+    .mat-form-field-outline {
+      border-color: $invalid-color !important; // Red outline for invalid input
+    }
+
+    &.mat-focused {
+      .mat-form-field-outline {
+        border-color: $invalid-color !important; // Red when focused and invalid
+      }
+    }
+  }
+
+  // Outline for valid input
+  &.ng-valid {
+    .mat-form-field-outline {
+      border-color: $valid-color !important; // Green outline for valid input
+    }
+
+    &.mat-focused {
+      .mat-form-field-outline {
+        border-color: $valid-color !important; // Green when focused and valid
+      }
+    }
+  }
+}
