@@ -16,8 +16,8 @@ export class ReportService {
   getSubcategoryTestResults(condition: any = {}): Observable<any> {
     return this.apiService.get('subcategory-test-results/');
   }
-  getAccessibility(): Observable<any> {
-    return this.apiService.get('accessibility_test/?test_id=&user=1&website=https://continualengine.com/&date=');
+  getAccessibility(test_id: string = '', user: number = 1, website: string = 'https://continualengine.com/', date: string = ''): Observable<any> {
+    return this.apiService.get(`accessibility_test/?test_id=${test_id}&user=${user}&website=${website}&date=${date}`);
   }
   getSubcategories(): Observable<any> {
     return this.apiService.get('subcategories/');
@@ -32,15 +32,13 @@ export class ReportService {
       api2: this.getSubcategories(),
       api3: this.getSubcategoryTestResults(),
       api4: this.getWebpageMapping(),
-      api5: this.getAccessibility(),
     }).pipe(
-      map(({ api1, api2, api3, api4, api5 }) => {
+      map(({ api1, api2, api3, api4 }) => {
         return api1.map((item1: any) => {
           const categories = item1.subcategories.map((catId: number) => {
             const api2Item = api2.find((item: any) => item.id === catId);
             const api3Item = api3.find((item: any) => item.id === api2Item.id);
             const api4Item = api4.find((item: any) => item.id === api3Item.id);
-            const api5Item = api5.find((item: any) => item.test_id === api4Item.test);
 
             return {
               id: api2Item.id,

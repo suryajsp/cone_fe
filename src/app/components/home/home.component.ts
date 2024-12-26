@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HomeService } from '../../service/home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  website_url: string = '';
   infoList: any = [
     {
       icon: "bi bi-globe2",
@@ -54,4 +57,17 @@ export class HomeComponent {
       description: "Our in-house team of subject matter experts performs, checks and analysis checkpoints and guideliness that are highly contextual, requiring manual expertise for accurate auditline manual"
     }
   ];
+
+  constructor(
+    public homeService: HomeService,
+    public router: Router
+  ) {
+
+  }
+
+  startAccessibilityTest() {
+    this.homeService.startAccessibility(this.website_url).subscribe(res => {
+      this.router.navigate(['/login']);
+    })
+  }
 }

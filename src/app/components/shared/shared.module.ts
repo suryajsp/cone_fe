@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableComponent } from './table/table.component';
-import { GridModule } from '@progress/kendo-angular-grid';
+//import { GridModule } from '@progress/kendo-angular-grid';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -13,10 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
-    GridModule,
+    //   GridModule,
     MatMenuModule,
     MatIconModule
   ],
-  exports: [TableComponent],
+  exports: [
+    TableComponent,
+    MatMenuModule,
+    MatIconModule,
+    //   GridModule
+  ],
 })
 export class SharedModule { }

@@ -11,9 +11,10 @@
                     <div class="col-lg-6 col-md-8 col-sm-10">
                         <h3>Is your Website Accessible?</h3>
                         <div class="input-group mt-3">
-                            <input type="text" class="form-control form-input" placeholder="Website URL" />
+                            <input type="text" class="form-control form-input" [(ngModel)]="website_url"
+                                placeholder="Website URL" />
                             <span class="input-group-text">
-                                <i class="bi bi-universal-access"></i>
+                                <i (click)="startAccessibilityTest()" class="bi bi-universal-access"></i>
                             </span>
                         </div>
                     </div>

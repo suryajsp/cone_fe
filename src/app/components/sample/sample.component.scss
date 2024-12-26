@@ -1,13 +1,19 @@
+table {
+    width: 100%;
+}
+
 th.mat-sort-header-sorted {
     color: black;
 }
 
+// make dropdown arrow align better in buttons
 .menuTrigger {
     .mat-icon {
         margin-right: -8px;
     }
 }
 
+// handle visiblity of checkboxes in simple menu
 .mat-menu-item {
     .mat-icon.checked {
         display: none;
@@ -29,10 +35,12 @@ th.mat-sort-header-sorted {
     }
 }
 
+// Color menu colors
 .red {
     color: red;
 }
 
+// headers in center start
 :host ::ng-deep .k-grid-header .k-header {
     position: relative;
     vertical-align: bottom;
@@ -44,13 +52,16 @@ th.mat-sort-header-sorted {
     padding: 8px 12px;
     flex-flow: row nowrap;
     align-items: center;
+    /* justify-content: inherit; */
     flex: 1;
     display: block;
     overflow: visible;
     text-align: center;
     width: auto;
-    font-weight: bolder;
 }
+
+// headers in center end
+
 
 :host ::ng-deep .fixed-header .k-grid-header {
     position: fixed;
@@ -62,17 +73,8 @@ th.mat-sort-header-sorted {
 
 .sticky-header {
     position: -webkit-sticky;
+    /* For Safari */
     position: sticky;
     top: 0;
     z-index: 100;
-}
-
-:host ::ng-deep .k-grid-content::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-
-:host ::ng-deep .k-grid-content::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 3px;
 }

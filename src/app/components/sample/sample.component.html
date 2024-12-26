@@ -1,0 +1,69 @@
+<section class="container-fluid pt-4 px-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
+      <li class="breadcrumb-item" aria-current="page">Remediation</li>
+      <li class="breadcrumb-item" aria-current="page">Users</li>
+    </ol>
+  </nav>
+  <section>
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h2>Remediation User</h2>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="createRemediationUser()">
+          Create Remediation User
+        </button>
+        &nbsp;
+        <small>
+          <button mat-icon-button (click)="getAllDailyImageTracker()" style="color: white; background-color: green">
+            <mat-icon style="font-size: 20px">refresh</mat-icon>
+          </button>
+        </small>
+        &nbsp;
+        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" class="menuTrigger"
+          [matMenuTriggerFor]="colors_menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #colors_menu="matMenu">
+          <div *ngFor="let colm of FinColumns">
+            <button mat-menu-item (click)="selectColor($event, colm.id)">
+              <mat-icon *ngIf="!colm.checkBox" [class.empty]="colm.checkBox">check_box_outline_blank</mat-icon>
+              <mat-icon *ngIf="colm.checkBox" [class.checked]="!colm.checkBox" class="red">check_box</mat-icon>
+              {{ colm.viewValue }}
+            </button>
+          </div>
+        </mat-menu>
+      </div>
+    </div>
+    <div>
+      <!--    <kendo-grid
+          #myGrid
+          [class]="scrollClass"
+          [kendoGridBinding]="gridData1"
+          [pageSize]="10"
+          [sortable]="true"
+          [pageable]="true"
+          [filterable]="true"
+          (cellClick)="onCellClick($event)"
+        >
+          <ng-container *ngFor="let col of FinColumns">
+            <kendo-grid-column
+              *ngIf="col.checkBox"
+              [field]="col.name"
+              [title]="col.viewValue"
+              [width]="col.width"
+              [filterable]="col.filterable"
+              [filter]="col.filter"
+              [format]="col.format"
+              [locked]="col.locked"
+            >
+
+            </kendo-grid-column>
+          </ng-container>
+        </kendo-grid>-->
+    </div>
+  </section>
+</section>

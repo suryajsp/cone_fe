@@ -59,10 +59,10 @@ export class SummaryComponent {
   ) { }
 
   ngOnInit(): void {
-    this.summaryService.getSubCategory().subscribe(res => {
-      const data = res;
-      console.log(data);
-    })
+    /* this.summaryService.getSubCategory().subscribe(res => {
+       const data = res;
+       console.log(data);
+     })*/
   }
 
   isString(value: any): boolean {

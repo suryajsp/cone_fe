@@ -19,6 +19,16 @@ import { DataTableComponent } from './components/data-table/data-table.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './components/shared/shared.module';
 import { ReportService } from './service/report.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SampleComponent } from './components/sample/sample.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 
 @NgModule({
@@ -27,7 +37,8 @@ import { ReportService } from './service/report.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    DataTableComponent
+    DataTableComponent,
+    SampleComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,14 @@ import { ReportService } from './service/report.service';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [
     ApiService,

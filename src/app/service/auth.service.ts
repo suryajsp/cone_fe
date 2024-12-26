@@ -17,12 +17,16 @@ export class AuthService {
     return this.apiService.post('login/', credentials);
   }
 
+  register(credentials: { username: string; password: string }) {
+    return this.apiService.post('register/', credentials);
+  }
+
   logout() {
     this.tokenService.clearToken();
     this.router.navigate(['/login']);
   }
 
-  isLoggedIn(): boolean {
+  isAuthenticated(): boolean {
     return !!this.tokenService.getToken();
   }
 }
