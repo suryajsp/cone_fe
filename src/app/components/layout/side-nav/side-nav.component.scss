@@ -1,5 +1,5 @@
 .sidebar {
-  width: 200px;
+  width: 220px;
   background-color: #1E3F66 !important;
   transition: width 0.3s ease, justify-content 0.3s ease, align-items 0.3s ease;
   color: #fff;
@@ -25,14 +25,11 @@
   .nav-link {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.5rem;
     color: #fff;
     text-decoration: none;
     transition: background-color 0.3s, border-left 0.3s;
-
-    &:hover {
-      background-color: #528AAE !important;
-    }
+    cursor: pointer;
 
     i {
       font-size: 1.2rem;
@@ -48,6 +45,7 @@
   // Style for active parent menu item
   .active-parent {
     border-left: 4px solid #ffffff; // Left border for active parent
+    font-weight: bold;
   }
 
   // Child menu styles
@@ -68,20 +66,20 @@
 
     li {
       .nav-link {
-        padding-left: 2rem; // Indent for child menu items
+        padding-left: 1rem; // Indent for child menu items
         font-size: 0.9rem;
-
-        &:hover {
-          background-color: #528AAE; // Hover effect for child items
-        }
 
         &.active-child {
           background-color: #528AAE; // Background for active child
           font-weight: bold;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
         }
       }
     }
   }
+
+
 
   // Toggle icon styles
   .toggle-icon {
@@ -106,4 +104,10 @@
       background-color: #528AAE; // Hover effect for logout
     }
   }
+}
+
+.nav-btm {
+  font-size: 0.9rem;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
 }

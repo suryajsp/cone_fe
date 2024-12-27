@@ -1,9 +1,5 @@
-:host {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  .row {
-    flex: 1;
-  }
+.feature {
+  overflow-y: scroll; // Allow scrolling but hide scrollbar
+  max-height: 88vh;
+  scrollbar-width: thin;
 }

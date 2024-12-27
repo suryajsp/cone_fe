@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ApiService } from './core/api.service';
 
 @Injectable({
@@ -11,7 +10,4 @@ export class SummaryService {
     private apiService: ApiService
   ) { }
 
-  getSubCategory(): Observable<any> {
-    return this.apiService.get('subcategories');
-  }
 }

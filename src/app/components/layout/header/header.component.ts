@@ -17,8 +17,6 @@ export class HeaderComponent {
   ngOnInit(): void {
     const userData = this.tokenService.getUserDetails();
     this.userName = userData.username;
-    console.log(userData);
-
   }
 
 }

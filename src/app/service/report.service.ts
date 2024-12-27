@@ -16,8 +16,8 @@ export class ReportService {
   getSubcategoryTestResults(condition: any = {}): Observable<any> {
     return this.apiService.get('subcategory-test-results/');
   }
-  getAccessibility(test_id: string = '', user: number = 1, website: string = 'https://continualengine.com/', date: string = ''): Observable<any> {
-    return this.apiService.get(`accessibility_test/?test_id=${test_id}&user=${user}&website=${website}&date=${date}`);
+  getAccessibility(test_id: string = '', website: string = '', date: string = ''): Observable<any> {
+    return this.apiService.get(`accessibility_test/?test_id=${test_id}&website=${website}&date=${date}`);
   }
   getSubcategories(): Observable<any> {
     return this.apiService.get('subcategories/');

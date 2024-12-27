@@ -8,6 +8,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { RadialRingComponent } from './radial-ring/radial-ring.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({

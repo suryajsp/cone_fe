@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { SummaryService } from '../../../service/summary.service';
-import { TokenService } from '../../../service/core/token.service';
+import { ReportService } from '../../../service/report.service';
 
 @Component({
   selector: 'app-summary',
@@ -47,22 +46,44 @@ export class SummaryComponent {
     }
   ];
 
-  tableData = [
-    { column1: 'Data 1.1', column2: 'Data 1.2', column3: 'Data 1.3' },
-    { column1: 'Data 2.1', column2: 'Data 2.2', column3: 'Data 2.3' },
-    { column1: 'Data 3.1', column2: 'Data 3.2', column3: 'Data 3.3' },
+  tableData: any = [];
+  activeButton: string = 'website';
+
+  tableDataByWebpages = [
+    { website_url: 'page1.com', total_checks: 50, total_passed: 30, status: 'Completed' },
+    { website_url: 'page2.com', total_checks: 75, total_passed: 60, status: 'In Progress' },
+    { website_url: 'page2.com', total_checks: 75, total_passed: 60, status: 'In Progress' },
+  ];
+
+  tableDataByCheckpoints = [
+    { website_url: 'checkpoint1.com', total_checks: 120, total_passed: 90, status: 'Completed' },
+    { website_url: 'checkpoint2.com', total_checks: 150, total_passed: 110, status: 'In Progress' },
+    { website_url: 'checkpoint2.com', total_checks: 150, total_passed: 110, status: 'In Progress' },
   ];
 
   constructor(
-    private summaryService: SummaryService,
-    private tokenService: TokenService,
+    private reportService: ReportService,
   ) { }
 
   ngOnInit(): void {
-    /* this.summaryService.getSubCategory().subscribe(res => {
-       const data = res;
-       console.log(data);
-     })*/
+    this.setActiveButton(this.activeButton);
+  }
+
+  setActiveButton(button: string): void {
+    this.activeButton = button;
+    switch (button) {
+      case 'website':
+        this.reportService.getAccessibility().subscribe(res => {
+          this.tableData = res;
+        })
+        break;
+      case 'webpages':
+        this.tableData = this.tableDataByWebpages;
+        break;
+      case 'checkpoints':
+        this.tableData = this.tableDataByCheckpoints;
+        break;
+    }
   }
 
   isString(value: any): boolean {
@@ -75,5 +96,13 @@ export class SummaryComponent {
 
   objectKeys(obj: any): string[] {
     return obj ? Object.keys(obj) : [];
+  }
+
+  calculatePercentage(value: number, total: number, decimalPlaces: number = 2): string {
+    if (!total || total === 0) {
+      return '0%';
+    }
+    const percentage = (value / total);
+    return `${percentage.toFixed(decimalPlaces)}%`;
   }
 }
